@@ -19,7 +19,7 @@ void loop() {
   while(Serial.available() == 0) {}
   
   myColor = Serial.readString();
-  
+   
   if (myColor == "red") {
     digitalWrite(redPin, HIGH);
     digitalWrite(greenPin, LOW);
@@ -37,24 +37,24 @@ void loop() {
   }
 
   if (myColor == "aqua") {
-    digitalWrite(redPin, LOW);
+    analogWrite(redPin, 0);
     analogWrite(greenPin, 255);
     analogWrite(bluePin, 80);
   }
   if (myColor == "cyan") {
-    digitalWrite(redPin, LOW);
+    analogWrite(redPin, 0);
     analogWrite(greenPin, 255);
     analogWrite(bluePin, 255);
   }
   if (myColor == "magenta") {
-    digitalWrite(redPin, 255);
-    analogWrite(greenPin, LOW);
-    analogWrite(bluePin, 255);
+    analogWrite(redPin, 255);
+    analogWrite(greenPin, 0);
+    analogWrite(bluePin, 100);
   }
   if (myColor == "yellow") {
-    digitalWrite(redPin, 255);
-    analogWrite(greenPin, 255);
-    analogWrite(bluePin, LOW);
+    analogWrite(redPin, 255);
+    analogWrite(greenPin, 100);
+    analogWrite(bluePin, 0);
   }
 
   if (myColor == "low") {
