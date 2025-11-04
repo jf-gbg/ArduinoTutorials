@@ -2,7 +2,7 @@
 int buzzPin = 8;
 int photoPin = A0;
 int photoVal;
-float toneVal;
+float toneVal = 60;
 
 void setup() {
   // put your setup code here, to run once:
@@ -14,15 +14,14 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   photoVal = analogRead(photoPin);
+  // toneVal = 9940 - (9940./1023.) * (photoVal) + 60;
 
-  toneVal = 9940 - (9940./1023.) * (photoVal) + 60;
+  Serial.println(photoVal);
+  // Serial.print(" → ");
+  // Serial.println(toneVal);
 
-  Serial.print(photoVal);
-  Serial.print(" - ");
-  Serial.println(toneVal);
-
-  digitalWrite(buzzPin, HIGH);
-  delayMicroseconds(toneVal);
-  digitalWrite(buzzPin, LOW);
-  delayMicroseconds(toneVal);
+  // digitalWrite(buzzPin, HIGH);
+  // delayMicroseconds(toneVal);
+  // digitalWrite(buzzPin, LOW);
+  // delayMicroseconds(toneVal);
 }
